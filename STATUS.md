@@ -1,11 +1,10 @@
 # PII Guard: Status
 
 ## Resume here
-**M4 done (2026-10-10). Stopped for review.** Live demo: `.venv/bin/python -m pii.server` → **http://localhost:5240**
-Engine (`pii/engine.py`) = rules + ONNX tagger (~9 ms) + format checks + conversation memory; API fail-closed, logs counts only.
-Load: 30 msg/s steady → p95 19 ms, 0 errors; one process saturates ~70 msg/s.
-Model results: see `reports/M3_REPORT.md` (leak 0.4–0.6% Ylemis, 2–5% Maskara). No retraining (Lan's call).
-Next: M5 documents (PDF/photo → OCR → burned-in redaction) or M6 policies/vault/audit.
+**Published 2026-10-10.** Code: https://github.com/l-narasimhan/pii-guard (public, MIT). Model: https://huggingface.co/lan1983/pii-guard-tagger (**private**; Piiranha-derived → CC BY-NC-ND, personal use only).
+Run locally: `.venv/bin/python -m pii.server` → http://localhost:5240 (demo). Docker: `docker compose up --build` (uses local `.env`, git-ignored).
+Third-party chat apps: README section + `examples/webhook_relay.py`; connector milestone M7b proposed (Freshchat first).
+Results: `reports/M3_REPORT.md`. No retraining (Lan's call). Next: M5 documents, M6 policies/vault/audit, or M7b connectors.
 
 ## M1 results: rule layer on synthetic data
 | | Test (unseen templates) | Valid (seen templates) |
