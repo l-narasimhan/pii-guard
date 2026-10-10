@@ -77,6 +77,44 @@ curl -s localhost:5240/redact -H 'X-API-Key: …' \
 ```
 `POST /redact` · `POST /reset` · `GET /health` · `POST /vault` (demo mode only).
 
+## Using it with someone else's chat app
+Most teams use a hosted chat tool (Freshchat/Freshdesk, Zendesk, Intercom, a WhatsApp BSP such as Gupshup, Interakt or Twilio, Haptik, Yellow.ai…). You can't change that vendor's code, so PII Guard plugs in at the points you **do** control:
+
+```
+customer ──► chat vendor (sees the raw message) ──┬──► agents in the vendor's dashboard
+                                                  │
+                                                  └──► webhook ──► relay ──► PII Guard ──► redacted copy ──► your DB · analytics · LLM · CRM
+                                                                                      └──► (optional) vendor "redact" API: clean the stored message
+```
+
+> **Be clear about what this does and doesn't do.** The vendor still receives and stores the raw message: it's your *data processor* under DPDP, so you need a processing agreement with them. PII Guard stops PII from spreading **beyond** the vendor (your databases, analytics, AI calls, exports), and can shrink what stays **inside** it. The only way to stop the vendor seeing PII at all is pattern D below.
+
+| Pattern | Where it hooks in | What it protects | Effort |
+|---|---|---|---|
+| **A. Webhook relay** (start here) | Vendor's "new message" webhook → [`examples/webhook_relay.py`](examples/webhook_relay.py) → your systems | Everything you store or process downstream | Low |
+| **B. Clean up inside the vendor** | Same webhook; after redacting, call the vendor's API to redact/edit the stored message, if it offers one (several helpdesks do; check yours) | The copy agents see later, exports, the vendor's own search | Medium; depends on the vendor's API |
+| **C. Bot / AI middleware** | The vendor's bot calls your webhook or AI endpoint; redact before the LLM, then put real values back into the reply only where needed | Prompts sent to OpenAI/Claude/Gemini | Medium |
+| **D. Your own website widget** | Your page/backend calls PII Guard before the message is sent to the vendor's API | The vendor never sees PII | Medium–high; agents see tokens, so actions like "call customer" go through your backend, which looks up the real value |
+| **E. Archive clean-up** | Batch over the vendor's exports or data dumps | Historical data | Low |
+
+**Pattern A in practice** (works with any vendor that sends webhooks):
+1. Run PII Guard internally (`docker compose up`); set `PII_API_KEY`.
+2. Run the relay next to it and tell it where the text and conversation id are in *your* vendor's payload:
+   ```bash
+   PII_API_KEY=… RELAY_SECRET=<vendor webhook secret> \
+   RELAY_TEXT_FIELD=message.text RELAY_CONV_FIELD=conversation_id \
+   RELAY_FORWARD_URL=https://your-internal-service/messages \
+   python examples/webhook_relay.py          # listens on :5250/webhook
+   ```
+3. In the vendor's admin panel, point the **message webhook** at the relay (through your API gateway/ingress). Turn off or restrict any other integration that copies raw transcripts into your systems.
+4. Your systems now receive e.g. `{"message":{"text":"hi, [NAME_1] here, [PHONE_1], refund to [UPI_1]"}, "pii":{"labels":["NAME","PHONE","UPI"]}}`. The same customer keeps the same token across a conversation, because the relay passes the vendor's conversation id.
+
+**Rules the relay follows** (keep them if you write your own):
+- **Verify the vendor's signature** (`RELAY_SECRET`, HMAC-SHA256 in `X-Signature`; adjust to your vendor's scheme), so nobody else can push messages in.
+- **Fail closed:** if PII Guard is down, reply 503 and forward nothing. Vendors retry webhooks, so nothing is lost and nothing leaks.
+- **Never log payloads.**
+- **`mode`:** `token` where people may need the real value later (support follow-up, via a controlled vault lookup); `mask` for analytics and logs (irreversible).
+
 ## Evaluate
 ```bash
 python -m tests.test_rules                                   # rule unit tests
@@ -94,7 +132,8 @@ pii/onnx_tagger.py   ONNX export/serving/bench                  pii/static/     
 pii/generate.py      synthetic data (templates + fake values)   pii/fake.py       fake-but-valid Indian IDs
 pii/train.py         fine-tuning                                pii/evaluate.py   recall/precision/leak
 pii/external.py      public benchmark scoring                   pii/baselines.py  GLiNER/Piiranha; pii/gemma.py Gemma
-data/handwritten.txt hand-written test set ([[LABEL:value]])    PLAN.md · TASKS.md · STATUS.md
+data/handwritten.txt hand-written test set ([[LABEL:value]])    examples/webhook_relay.py  third-party chat app relay
+PLAN.md · TASKS.md · STATUS.md  plan, task list, resume point
 ```
 
 ## DPDP note

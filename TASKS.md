@@ -80,7 +80,9 @@ Training (two tracks, trained one after the other; ask Lan before any training r
 - [x] T7.1 Dockerfile (621 MB, no PyTorch); model mounted or downloaded from private HF repo (not baked in: licence + size)
 - [x] T7.2 Config via env (PII_MODE demo|prod, PII_API_KEY, PII_HOST/PORT, PII_MODEL_*); /health + Docker HEALTHCHECK; warm-up
 - [x] T7.2b Repo: README, MIT licence (code), requirements-serve/train, docker-compose, .env.example, fetch/upload scripts
-- [ ] T7.2c Push code to public GitHub `pii-guard`; model to private HF repo (personal use: Piiranha is CC BY-NC-ND)
+- [x] T7.2c Code pushed to public GitHub l-narasimhan/pii-guard
+- [~] T7.2d Model → private HF lan1983/pii-guard-tagger (personal use: Piiranha is CC BY-NC-ND)
+- [x] T7.2e README "Using it with someone else's chat app" + `examples/webhook_relay.py` (signature check, fail closed; tested)
 - [ ] T7.3 Doc worker + queue setup (local equivalent)
 - [ ] T7.4 Load test; sizing guide
 - [ ] T7.5 Deployment guide (India region, network, vault, monitoring)
