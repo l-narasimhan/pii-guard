@@ -1,0 +1,19 @@
+.venv/
+__pycache__/
+*.pyc
+.DS_Store
+# model weights never go in git (see README: Hugging Face)
+models/
+# generated / downloaded data (regenerate with pii.generate, scripts/fetch_external.sh)
+data/train.jsonl
+data/valid.jsonl
+data/test.jsonl
+data/test_sample300.jsonl
+data/sft/
+data/external/
+# runtime logs
+reports/server.log
+*.log
+!reports/m2_gemma_run.log
+!reports/m3_train.log
+.env

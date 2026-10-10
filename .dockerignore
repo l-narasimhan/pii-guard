@@ -1,0 +1,10 @@
+.venv
+.git
+models
+data
+reports
+tests
+scripts
+*.md
+!README.md
+__pycache__

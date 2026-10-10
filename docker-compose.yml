@@ -1,0 +1,11 @@
+# Local run that mirrors production. Copy .env.example to .env and fill it in.
+services:
+  pii-guard:
+    build: .
+    image: pii-guard:latest
+    ports:
+      - "5240:5240"
+    env_file: .env
+    volumes:
+      - ./models/tagger-piiranha:/app/models/tagger   # local model; remove to download from PII_MODEL_REPO instead
+    restart: unless-stopped

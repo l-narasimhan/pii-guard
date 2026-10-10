@@ -1,0 +1,10 @@
+# Training, evaluation and baselines (Mac/MPS or CUDA)
+-r requirements-serve.txt
+torch==2.14.1
+safetensors==0.8.0
+onnx==1.23.2
+onnxscript==0.7.2
+pyarrow==26.0.0
+# optional baselines (M2): zero-shot GLiNER and Gemma via MLX (Apple silicon only)
+gliner==0.2.29
+mlx-lm==0.32.0; sys_platform == "darwin"

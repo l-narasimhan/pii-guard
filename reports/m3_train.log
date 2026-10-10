@@ -1,0 +1,89 @@
+[15:24:37] waiting for Gemma baseline run to finish
+[15:45:38] TRAIN tagger (Piiranha base, full fine-tune, 3 epochs)
+[15:46:17] restarted (log buffering fix)
+[15:46:22] waiting for Gemma baseline run to finish
+[15:46:22] TRAIN tagger (Piiranha base, full fine-tune, 3 epochs)
+device=mps base=iiiorg/piiranha-v1-detect-personal-information train=15000 valid=1500 steps=2814
+[16:03:45] restarted (MPS memory fix: fixed-length padding)
+[16:03:45] waiting for Gemma baseline run to finish
+[16:03:45] TRAIN tagger (Piiranha base, full fine-tune, 3 epochs)
+device=mps base=iiiorg/piiranha-v1-detect-personal-information train=15000 valid=1500 steps=2814
+step 100/2814 loss 0.2713 (101s) mps 3.3GB
+step 200/2814 loss 0.1589 (202s) mps 3.3GB
+step 300/2814 loss 0.0099 (301s) mps 3.3GB
+   valid loss 0.0058  <- saved
+step 400/2814 loss 0.0052 (426s) mps 3.3GB
+step 500/2814 loss 0.0040 (526s) mps 3.3GB
+step 600/2814 loss 0.0022 (626s) mps 3.3GB
+   valid loss 0.0024  <- saved
+step 700/2814 loss 0.0016 (750s) mps 3.3GB
+step 800/2814 loss 0.0014 (846s) mps 3.3GB
+step 900/2814 loss 0.0018 (943s) mps 3.3GB
+   valid loss 0.0011  <- saved
+step 1000/2814 loss 0.0009 (1069s) mps 3.3GB
+step 1100/2814 loss 0.0366 (1167s) mps 3.3GB
+step 1200/2814 loss 0.0006 (1264s) mps 3.3GB
+   valid loss 0.0012
+step 1300/2814 loss 0.0007 (1388s) mps 3.3GB
+step 1400/2814 loss 0.0008 (1485s) mps 3.3GB
+step 1500/2814 loss 0.0009 (1582s) mps 3.3GB
+   valid loss 0.0002  <- saved
+step 1600/2814 loss 0.0008 (1706s) mps 3.3GB
+step 1700/2814 loss 0.0005 (1806s) mps 3.3GB
+step 1800/2814 loss 0.0004 (1905s) mps 3.3GB
+   valid loss 0.0001  <- saved
+step 1900/2814 loss 0.0004 (2029s) mps 3.3GB
+step 2000/2814 loss 0.0004 (2128s) mps 3.3GB
+step 2100/2814 loss 0.0004 (2226s) mps 3.3GB
+   valid loss 0.0001  <- saved
+step 2200/2814 loss 0.0005 (2351s) mps 3.3GB
+step 2300/2814 loss 0.0004 (2449s) mps 3.3GB
+step 2400/2814 loss 0.0005 (2547s) mps 3.3GB
+   valid loss 0.0002
+step 2500/2814 loss 0.0004 (2681s) mps 3.3GB
+step 2600/2814 loss 0.0002 (2780s) mps 3.3GB
+step 2700/2814 loss 0.0180 (2877s) mps 3.3GB
+   valid loss 0.0001  <- saved
+step 2800/2814 loss 0.0004 (3003s) mps 3.3GB
+   valid loss 0.0001  <- saved
+done: best valid loss 0.0001 -> models/tagger-piiranha (50.7 min)
+[16:54:36] EVAL tagger
+=== tagger(tagger-piiranha) on handwritten -> reports/m3_tagger_piiranha_handwritten.md
+| PHONE | 46 | 44 | 95.7% | 10 | 81.5% |
+| **Rule labels total** | 110 | 99 | **90.0%** | 19 | **83.9%** |
+| NAME | 77 | 77 | 100.0% | 3 | 96.2% |
+| ADDRESS | 21 | 21 | 100.0% | 3 | 87.5% |
+| **All PII (incl. names/addresses)** | 209 | 198 | **94.7%** | 25 | |
+**PII characters left visible (leak):** 1.9% overall; AADHAAR 0.0%, ADDRESS 0.0%, BANK_ACCT 0.0%, CARD 0.0%, DL 0.0%, DOB 0.0%, EMAIL 13.2%, GSTIN 0.0%, IP 0.0%, NAME 0.0%, PAN 0.0%, PASSPORT 0.0%, PHONE 2.8%, UPI 0.0%, VEHICLE 0.0%, VOTER_ID 50.0%
+**Latency per message:** mean 31.458 ms · p95 40.091 ms · p99 310.662 ms
+=== Rules + tagger(tagger-piiranha) on handwritten -> reports/m3_engine_tagger_piiranha_handwritten.md
+| PHONE | 46 | 45 | 97.8% | 4 | 91.8% |
+| **Rule labels total** | 110 | 109 | **99.1%** | 8 | **93.2%** |
+| NAME | 77 | 77 | 100.0% | 3 | 96.2% |
+| ADDRESS | 21 | 21 | 100.0% | 3 | 87.5% |
+| **All PII (incl. names/addresses)** | 209 | 208 | **99.5%** | 14 | |
+**PII characters left visible (leak):** 0.2% overall; AADHAAR 0.0%, ADDRESS 0.0%, BANK_ACCT 0.0%, CARD 0.0%, DL 0.0%, DOB 0.0%, EMAIL 0.0%, GSTIN 0.0%, IP 0.0%, NAME 0.0%, PAN 0.0%, PASSPORT 0.0%, PHONE 0.9%, UPI 0.0%, VEHICLE 0.0%, VOTER_ID 0.0%
+**Latency per message:** mean 27.378 ms · p95 36.034 ms · p99 39.837 ms
+=== tagger(tagger-piiranha) on test -> reports/m3_tagger_piiranha_test.md
+| PHONE | 1680 | 1680 | 100.0% | 28 | 98.4% |
+| **Rule labels total** | 3594 | 3532 | **98.3%** | 69 | **98.1%** |
+| NAME | 2044 | 2041 | 99.9% | 126 | 94.2% |
+| ADDRESS | 129 | 129 | 100.0% | 159 | 44.8% |
+| **All PII (incl. names/addresses)** | 5807 | 5742 | **98.9%** | 354 | |
+**PII characters left visible (leak):** 0.5% overall; AADHAAR 0.0%, ADDRESS 0.1%, BANK_ACCT 0.0%, CARD 0.0%, DL 0.0%, DOB 0.0%, EMAIL 0.0%, GSTIN 0.0%, IP 16.3%, NAME 0.0%, PAN 0.0%, PASSPORT 71.7%, PHONE 0.0%, UPI 0.9%, VEHICLE 0.0%, VOTER_ID 1.3%
+**Latency per message:** mean 31.276 ms · p95 41.522 ms · p99 44.383 ms
+=== Rules + tagger(tagger-piiranha) on test -> reports/m3_engine_tagger_piiranha_test.md
+| PHONE | 1680 | 1680 | 100.0% | 10 | 99.4% |
+| **Rule labels total** | 3594 | 3594 | **100.0%** | 27 | **99.3%** |
+| NAME | 2044 | 2041 | 99.9% | 126 | 94.2% |
+| ADDRESS | 129 | 129 | 100.0% | 159 | 44.8% |
+| **All PII (incl. names/addresses)** | 5807 | 5804 | **99.9%** | 312 | |
+**PII characters left visible (leak):** 0.0% overall; AADHAAR 0.0%, ADDRESS 0.1%, BANK_ACCT 0.0%, CARD 0.0%, DL 0.0%, DOB 0.0%, EMAIL 0.0%, GSTIN 0.0%, IP 0.0%, NAME 0.0%, PAN 0.0%, PASSPORT 0.0%, PHONE 0.1%, UPI 0.0%, VEHICLE 0.0%, VOTER_ID 0.0%
+**Latency per message:** mean 30.909 ms · p95 40.192 ms · p99 43.867 ms
+[16:56:52] TRAIN Gemma-4 E2B LoRA (QLoRA on 4-bit base)
+Trainable parameters: 0.147% (6.816M/4628.569M)
+[17:08:16] Gemma LoRA stopped after 11 min with no output; diagnosing
+[17:08:59] TRAIN Gemma-4 E2B LoRA (QLoRA, 2000 iters) — progress rows: iter / train_loss / tok/s
+     1    val 2.136    24.92s
+    50    0.305 ▼       73      8.7k
+[17:13:03] Gemma LoRA stopped by Lan's decision at step ~50: tagger only

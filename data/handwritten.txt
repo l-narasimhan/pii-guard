@@ -1,0 +1,555 @@
+# Hand-written "real-style" test set. NOT from the generator.
+# Format: items separated by a line "---"; first line "@chat" or "@doc".
+# Mark PII inline as [[LABEL:value]]. Everything unmarked is NOT PII.
+# Add your own (masked) real samples the same way.
+@chat
+hi this is [[NAME:priya]] , my order still not deliverd 😡
+---
+@chat
+Order not recieved. Name [[NAME:Suresh Iyer]] ph [[PHONE:9845012345]]
+---
+@chat
+pls call [[PHONE:98450 77821]] after 6pm, im at office till then
+---
+@chat
+my no is [[PHONE:98450 1234O]] (whatsapp only)
+---
+@chat
+number is [[PHONE:99016]] ... sorry, rest is [[PHONE:44328]]
+---
+@chat
+home landline [[PHONE:080-2345 6789]] if mobile not reachable
+---
+@chat
+call my landline [[PHONE:011 4567 8901]], delhi
+---
+@chat
+I am in Dubai now, reach me on [[PHONE:+971 50 123 4567]]
+---
+@chat
+email is [[EMAIL:ramesh dot kumar at gmail dot com]]
+---
+@chat
+send bill to [[EMAIL:anjali.mehta1990@gmail.com]] not to old id
+---
+@chat
+UPI [[UPI:sureshiyer@superyes]] pe refund karo
+---
+@chat
+refund to [[UPI:9845012345@ybl]] pls
+---
+@chat
+Gpay pe bhej do [[UPI:kavya.r@okhdfcbank]]
+---
+@chat
+aadhaar [[AADHAAR:3588-1399-8697]] for verification
+---
+@chat
+[[AADHAAR:9973 0911 4173]] this is my adhar
+---
+@chat
+my aadhaar ending XXXX XXXX 4173, is that enough?
+---
+@chat
+PAN is [[PAN:AAKPV 4321 Q]]
+---
+@chat
+pan no [[PAN:bqrps7788l]] pls update in invoice
+---
+@chat
+GST no [[GSTIN:10AAKPV4321Q8Z7]] please add on bill
+---
+@chat
+card [[CARD:6578 7680 4571 7841]] debited twice!!
+---
+@chat
+paid with card ending 7841, still pending
+---
+@chat
+transfer to [[BANK_ACCT:50100234567812]] hdfc, ifsc HDFC0001234
+---
+@chat
+account no [[BANK_ACCT:39871234560]] SBI Jayanagar branch
+---
+@chat
+AWB 783420019812 not moving since 3 days
+---
+@chat
+tracking 9536 4556 8159 shows delivered but i didnt get
+---
+@chat
+order OD432198765012345678 ka status?
+---
+@chat
+deliver to [[ADDRESS:3rd house after ramu tea stall, blue gate, Vidyaranyapura]]
+---
+@chat
+address: [[ADDRESS:No 14, 2nd cross, Gandhi Nagar, Hosur]]
+---
+@chat
+[[ADDRESS:Flat 1203 Tower B Lodha Palava Dombivli East]] pe bhejna
+---
+@chat
+I live in [[ADDRESS:Sector 21, Plot 44, Kharghar, Navi Mumbai 410210]]
+---
+@chat
+can u deliver to 560066? is it serviceable
+---
+@chat
+is Whitefield serviceable for same day?
+---
+@chat
+Thanks [[NAME:Divya]] from support, issue solved 👍
+---
+@chat
+hi [[NAME:Rahul]], any update?
+---
+@chat
+pooja items order kiya tha, Ganesh Chaturthi ke liye, abhi tak nahi aaya
+---
+@chat
+Ordered from Lakshmi Stores, they cancelled without reason
+---
+@chat
+[[NAME:Lakshmi]] here, my mother [[NAME:Shanti Devi]] will receive the parcel
+---
+@chat
+Kiran Store wale bol rahe stock nahi hai
+---
+@chat
+mera naam [[NAME:Kiran Patil]] hai, mera parcel kahan hai
+---
+@chat
+en peru [[NAME:Karthik]], parcel inga varala
+---
+@chat
+nanna hesaru [[NAME:Manjunath]], number [[PHONE:9741203345]] ge call madi
+---
+@chat
+naa peru [[NAME:Venkatesh Naidu]], order cancel cheyyandi
+---
+@chat
+amma [[NAME:Saraswathi]] ki ivvandi parcel, nenu office lo unna
+---
+@chat
+Ramesh Medicals se order kiya tha, medicine galat aayi
+---
+@chat
+from Bharat Petroleum dealer, need bulk order invoice
+---
+@chat
+rider [[NAME:Imran]] ne parcel neighbour ko de diya
+---
+@chat
+your delivery boy [[NAME:Sanjay]] [[PHONE:7019234412]] never came
+---
+@chat
+truck no [[VEHICLE:KA51AB4321]] reached hub?
+---
+@chat
+gaadi number [[VEHICLE:MH 12 DE 4567]] wala rider tha
+---
+@chat
+my dob [[DOB:14/03/1988]], kyc failing
+---
+@chat
+born on [[DOB:3rd Jan 1992]], why age error
+---
+@chat
+delivery date 12/10/2026 was promised
+---
+@chat
+passport [[PASSPORT:M1234567]] for customs, pls check
+---
+@chat
+voter id [[VOTER_ID:TNX4421980]] as address proof ok?
+---
+@chat
+login blocked from [[IP:49.207.12.4]], pls unblock
+---
+@chat
+Hi, I'm [[NAME:Fatima Sheikh]], [[PHONE:+91 88800 12399]], order 403-1234567-7654321 damaged
+---
+@chat
+call me [[PHONE:nine eight four five zero one two three four five]]
+---
+@chat
+my number nau aath chaar paanch... just call [[PHONE:9845 012 345]]
+---
+@chat
+this is Dr. [[NAME:Meena Krishnan]], need prescription items urgently
+---
+@chat
+for Mr. [[NAME:Joseph D'Souza]], flat [[ADDRESS:B-12 Rose Garden CHS, Bandra West]]
+---
+@chat
+[[NAME:Gurpreet]] paaji, parcel gate te chad deyo
+---
+@chat
+Refund for Diwali sale order not credited. utr 412398765432
+---
+@chat
+call center 1800 102 7777 never picks up
+---
+@chat
+contact my husband [[NAME:Arjun]] on [[PHONE:9663301122]]
+---
+@chat
+alt number [[PHONE:+91-7760012345]], primary is switched off
+---
+@chat
+email:[[EMAIL:sneha_k@yahoo.co.in]] phone:[[PHONE:9008123456]]
+---
+@chat
+mob[[PHONE:9845012399]] (sorry typo)
+---
+@chat
+customer [[NAME:Abdul Rahman]] says package torn, AWB 1Z999AA10123456784
+---
+@chat
+SKU AMUL-1L-882 missing from order
+---
+@chat
+price was Rs 1,249 but charged ₹1,349
+---
+@chat
+hi team, [[NAME:Nandini]] this side. Pincode 560078. delivery kab tak?
+---
+@chat
+my brother [[NAME:Vikram Singh Rathore]] will collect from hub
+---
+@chat
+Ganesh se baat hui thi call pe, usne bola kal aayega
+---
+@chat
+Saw your Hanuman Jayanti offer, is it still on?
+---
+@chat
+address change: [[ADDRESS:H.No 8-2-293/82, Road No 14, Banjara Hills, Hyderabad 500034]]
+---
+@chat
+near [[ADDRESS:Hanuman temple, opp SBI ATM, Malleshwaram 18th cross]]
+---
+@chat
+send to my office [[ADDRESS:4th floor, Prestige Tech Park, Marathahalli]] reception
+---
+@chat
+[[NAME:Tanvi]] ka number [[PHONE:8105 223 344]] pe call karo
+---
+@chat
+OTP not coming on [[PHONE:9611234567]]
+---
+@chat
+customer id CUST-88213, name [[NAME:R. Subramanian]]
+---
+@chat
+Hi [[NAME:Mohan]] sir, your refund of Rs 499 is processed
+---
+@chat
+[[NAME:Anita]] madam ne bola tha return pickup hoga
+---
+@chat
+kya [[NAME:Shalini]] ji ka order ready hai? number [[PHONE:7353112233]]
+---
+@chat
+complaint no TKT#559201 still open after a week
+---
+@chat
+my aadhaar is [[AADHAAR:898716897681]] and pan [[PAN:CXZPM1029K]]
+---
+@chat
+[[AADHAAR:6472 9405 5765]]
+---
+@chat
+paid via [[CARD:8137929841622946]] rupay
+---
+@chat
+uske card ka number [[CARD:6514-7513-6270-1074]] hai, wahi use kiya
+---
+@chat
+ifsc is ICIC0004521 and acct [[BANK_ACCT:004501234567]]
+---
+@chat
+my email [[EMAIL:priya.s@infosys.com]] for GST invoice please
+---
+@chat
+coupon DIWALI500 not working
+---
+@chat
+pls call back [[PHONE:+91 98861 00221]] or email [[EMAIL:kunal.b@outlook.com]]
+---
+@chat
+bhaiya [[ADDRESS:gali no 4, shiv mandir ke peeche, Laxmi Nagar]] mein aana
+---
+@chat
+lane behind Murugan Stores is where I live, no number on gate
+---
+@chat
+Agent: may I know your name?
+Customer: [[NAME:Harish]]
+Agent: and registered number?
+Customer: [[PHONE:94480 55123]]
+---
+@chat
+Agent: address confirm kar dijiye
+Customer: [[ADDRESS:Flat 302, Sai Krupa Residency, Kondapur]]
+Agent: dhanyavaad [[NAME:Revathi]] ji
+---
+@chat
+Agent: Rider [[NAME:Salman]] is on the way, his number is [[PHONE:7019988776]]
+Customer: ok thanks
+---
+@doc
+CUSTOMER KYC FORM
+Narne: [[NAME:Suresh Iyer]]
+Fathers Name: [[NAME:K. Iyer]]
+DOB: [[DOB:12-07-1979]]
+PAN No : [[PAN:AAKPV4321Q]]
+Aadhar : [[AADHAAR:9536 4556 8158]]
+Address: [[ADDRESS:12, 3rd Main, Jayanagar 4th Block, Bengaluru 560011]]
+Mobi1e: [[PHONE:98450 12345]]
+---
+@doc
+TAX INVOICE
+Sold by: Krishna Dairy Pvt Ltd, GSTIN [[GSTIN:24CXZPM1029K4ZW]]
+Invoice No: INV/2026-27/00891   Date: 09/10/2026
+Bill To: [[NAME:Anjali Mehta]]
+[[ADDRESS:B-404, Green Valley Apts, Baner, Pune 411045]]
+Ph: [[PHONE:9822012345]]
+Amul Taaza 1L x 6   Rs 408
+---
+@doc
+PROOF OF DELIVERY
+AWB: 783420019812
+Consignee: [[NAME:Kavya Rao]]
+Received by: [[NAME:Shanti]] (mother)
+Delivered: 10-Oct-2026 14:20
+Rider: [[NAME:Imran Khan]]  Vehicle: [[VEHICLE:KA 03 MN 7788]]
+---
+@doc
+To,
+The Manager, Customer Care
+Lakshmi Stores
+
+Subject: Complaint against delayed delivery of order FK-778812
+
+Sir,
+I, [[NAME:Venkatesh Naidu]], residing at [[ADDRESS:Plot 21, Temple Road, Madhapur, Hyderabad]], placed an order on 01/10/2026.
+Kindly contact me at [[PHONE:9000012345]] or [[EMAIL:venkat.naidu@gmail.com]].
+
+Regards,
+[[NAME:Venkatesh Naidu]]
+---
+@doc
+SELLER REGISTRATION
+Business Name: Sri Balaji Enterprises
+GSTIN: [[GSTIN:34BQRPS7788L8ZC]]
+Proprietor: [[NAME:Balaji Srinivasan]]
+PAN: [[PAN:BQRPS7788L]]
+Settlement A/c: [[BANK_ACCT:912010045678123]]  IFSC: UTIB0000123
+Contact: [[PHONE:9444012345]]
+---
+@doc
+DELIVERY PARTNER ONBOARDING
+Full name - [[NAME:Mohammed Irfan]]
+Date of birth - [[DOB:5 August 1996]]
+Mobile - [[PHONE:7259001122]]
+Bike - [[VEHICLE:TS09EK4321]]
+EPIC No - [[VOTER_ID:ABX5512309]]
+Emergency contact - [[NAME:Ayesha]] ([[PHONE:7259001133]])
+---
+@doc
+2026-10-09 11:02:13 INFO user_login email=[[EMAIL:deepa.n@gmail.com]] ip=[[IP:103.21.44.9]]
+2026-10-09 11:02:20 INFO order_placed order=ORD100234 amt=1249
+2026-10-09 11:03:05 WARN sms_failed to=[[PHONE:9845098450]]
+---
+@doc
+2026-10-09 18:44:01 ERROR payment_declined card=[[CARD:8133-1908-4520-5998]] user=u_88213
+2026-10-09 18:44:02 INFO retry_scheduled txn=TXN202610091844
+---
+@doc
+Regards,
+[[NAME:Anil Menon]]
+Ops Manager, Krishna Dairy
+[[PHONE:+91 99001 22334]] | [[EMAIL:anil.menon@krishnadairy.in]]
+---
+@doc
+EXPORT INVOICE
+Exporter: Mahalaxmi Textiles, GSTIN [[GSTIN:10AAKPV4321Q8Z7]]
+Contact person: [[NAME:Geeta Sharma]], [[PHONE:9811012345]]
+Passport No.: [[PASSPORT:R7766554]]
+Consignee: [[NAME:John Peterson]], [[ADDRESS:22 Baker Street, London NW1 6XE]]
+---
+@doc
+RETURN REQUEST FORM
+Order ID: OD998877665544332211
+Customer Name: [[NAME:Priyanka Chopra]]
+Pickup Address: [[ADDRESS:Flat 9, Ganga Enclave, Gomti Nagar, Lucknow 226010]]
+Reason: size issue
+Refund mode: UPI ([[UPI:priyanka.c@oksbi]])
+---
+@doc
+CALL TRANSCRIPT 10/10/2026
+Agent: Thank you for calling, I'm [[NAME:Pooja]].
+Caller: Hi, this is [[NAME:Rakesh Gupta]], my order is late.
+Agent: Can you confirm your number?
+Caller: [[PHONE:nine eight one one zero four four three two one]]
+---
+@doc
+Shipping label
+TO: [[NAME:Ritu Arora]]
+[[ADDRESS:House 77, Sector 15, Rohini, New Delhi 110089]]
+Ph [[PHONE:9810077665]]
+FROM: Gupta & Sons, Chandni Chowk
+---
+@doc
+Employee ID: EMP-2231
+Name: [[NAME:Sunita Rao]]
+Personal email: [[EMAIL:sunita.rao77@gmail.com]]
+Bank account: [[BANK_ACCT:20012345678]]
+IFSC: SBIN0005512
+---
+@doc
+KYC DOCUMENT CHECKLIST
+1. PAN card copy
+2. Aadhaar card copy (masked: XXXX XXXX 8158)
+3. Address proof
+4. Cancelled cheque
+---
+@doc
+Warehouse inbound note
+PO: PO-2026-4412  Vendor: Annapurna Foods Pvt Ltd
+Truck: [[VEHICLE:MH 04 GH 1122]]  Driver: [[NAME:Ramdas Pawar]] [[PHONE:9821001234]]
+Pallets: 22   Dock: 4
+---
+@doc
+INCIDENT REPORT
+Store: Darkstore BLR-07
+Reported by: Shift lead [[NAME:Nikhil Joshi]]
+Customer [[NAME:Meera]] ([[PHONE:9900112233]]) complained of expired milk, batch B2291
+---
+@doc
+Aadhaar No.: [[AADHAAR:8978-8093-2083]]
+Name: [[NAME:Deepak Yadav]]
+Year of Birth: 1990
+Gender: Male
+---
+@doc
+Consent form
+I [[NAME:Swati Kulkarni]] agree to share my documents for verification.
+Signature: ______   Date: 08/10/2026
+---
+@doc
+Payment receipt
+Received with thanks from Mr. [[NAME:Harjeet Singh Gill]] the sum of Rs 12,500
+via cheque no 004512 drawn on Punjab National Bank
+---
+@doc
+Customer feedback export
+id,name,phone,rating,comment
+101,[[NAME:Arun Kumar]],[[PHONE:9845001122]],2,late delivery
+102,[[NAME:Zainab Qureshi]],[[PHONE:9886112233]],5,good
+103,[[NAME:Teresa Fernandes]],[[PHONE:9123456780]],4,ok
+---
+@doc
+Rider payout sheet - week 41
+[[NAME:Sanjay Kumar]]  [[BANK_ACCT:3011223344]]  Rs 6,450
+[[NAME:Imran Khan]]  [[BANK_ACCT:3011223355]]  Rs 7,120
+---
+@doc
+Insurance claim
+Claimant: [[NAME:Latha Pillai]]
+Policy No: POL/2026/88231
+Address: [[ADDRESS:TC 12/455, Kowdiar, Thiruvananthapuram 695003]]
+Contact: [[PHONE:9447012345]]
+---
+@doc
+Vendor master update
+Vendor: Murugan Stores
+Contact person: [[NAME:Senthil Murugan]]
+GSTIN: [[GSTIN:24CXZPM1029K4ZW]]
+Email: [[EMAIL:senthil@murugan-stores.in]]
+---
+@doc
+Store opening checklist - Koramangala darkstore
+Manager on duty: [[NAME:Ishaan]]
+Pickers present: 12
+Inbound trucks expected: 3
+---
+@doc
+NDR report
+AWB 783420019899 | reason: customer not available | attempt 2
+AWB 783420019900 | reason: address incomplete | attempt 1
+Customer note: call [[PHONE:9945012345]] before coming
+---
+@doc
+Medical certificate
+This is to certify that Ms. [[NAME:Revathi S]] was under my treatment.
+Dr. [[NAME:Prakash Rao]], Reg No KMC-44512
+---
+@doc
+Address proof: Electricity bill
+Consumer: [[NAME:Mahesh Shetty]]
+Service address: [[ADDRESS:#45, 6th Cross, Malleshwaram, Bengaluru 560003]]
+Consumer No: 1120034455
+---
+@doc
+Courier manifest
+1. [[NAME:A. Banerjee]], [[ADDRESS:12 Lake Road, Kolkata 700029]], [[PHONE:9830012345]]
+2. [[NAME:S. Ghosh]], [[ADDRESS:7B Salt Lake Sector II, Kolkata 700091]], [[PHONE:9831023456]]
+---
+@doc
+Team update: Diwali peak plan
+Owner: [[NAME:Kunal]]
+SLA target 10 min, 4 extra pickers per store, Bengaluru + Hyderabad
+---
+@doc
+WhatsApp export
+[10/10/26, 9:14 AM] [[NAME:Ravi Kumar]]: parcel nahi aaya
+[10/10/26, 9:15 AM] Support: please share order id
+[10/10/26, 9:16 AM] [[NAME:Ravi Kumar]]: OD123450987612345678, number [[PHONE:9845076543]]
+---
+@doc
+Cheque details
+Payee: Shree Krishna Electronics
+A/c No: [[BANK_ACCT:6012345678]]
+Drawn by: [[NAME:Pradeep Mishra]]
+---
+@doc
+Loan application (partial)
+Applicant: [[NAME:Kavitha Raghavan]]
+DOB: [[DOB:22/11/1985]]
+Aadhaar: [[AADHAAR:396727317789]]
+Card on file: [[CARD:6578 7680 4571 7841]]
+---
+@doc
+Visitor log - Hub BLR-02
+[[NAME:Sudha]]  [[PHONE:9739912345]]  in 10:05  out 10:40
+[[NAME:Rajesh Kulkarni]]  [[PHONE:9880011223]]  in 11:20  out 12:00
+---
+@doc
+Email
+From: customercare@shopkart.in
+To: [[EMAIL:mehul.shah@gmail.com]]
+Dear [[NAME:Mehul]], your return for order FK-221199 has been approved.
+---
+@doc
+SLA breach summary (no PII)
+Store BLR-07: 14 breaches, avg delay 6.2 min
+Store HYD-03: 9 breaches, avg delay 4.8 min
+Top reason: short picks on dairy SKUs
+---
+@doc
+Driver licence copy
+Name: [[NAME:Rohit Verma]]
+DL No: [[DL:KA0520190012345]]
+DOB: [[DOB:09/09/1993]]
+Address: [[ADDRESS:Flat 5, Raheja Vihar, Powai, Mumbai 400072]]
+---
+@doc
+Aadhaar card (OCR)
+[[NAME:Bhavana Hegde]]
+DOB: [[DOB:15/06/1991]]
+FEMALE
+[[AADHAAR:8488 7663 4407]]
+Aadhaar - Aam Aadmi ka Adhikar
