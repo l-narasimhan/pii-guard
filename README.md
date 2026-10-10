@@ -77,6 +77,33 @@ curl -s localhost:5240/redact -H 'X-API-Key: …' \
 ```
 `POST /redact` · `POST /reset` · `GET /health` · `POST /vault` (demo mode only).
 
+## Using it in your own chat app
+With your own app you control the code, so the raw message never has to be stored or shown: **call PII Guard on your backend, in the message path, before anything is saved or delivered.**
+
+```
+customer app ──► your chat backend ──► PII Guard /redact ──► store REDACTED text ──► agent screen · bots · LLM · analytics
+                         │                    └──► real values go to the vault (locked down)
+                         └── if PII Guard fails → hold/queue the message, never pass it on raw (fail closed)
+```
+
+```python
+r = requests.post("http://pii-guard:5240/redact", timeout=2,
+                  headers={"X-API-Key": KEY},
+                  json={"text": msg.text, "conversation_id": msg.chat_id, "mode": "token"})
+r.raise_for_status()                      # error → don't save/forward; queue and retry
+msg.text = r.json()["redacted"]           # "[NAME_1] here, [PHONE_1]"
+save(msg); deliver_to_agent(msg)
+```
+
+1. **Server-side, not in the app**, so it can't be bypassed. An in-app preview ("this message contains an Aadhaar number") is a nice extra, not the safeguard.
+2. **Pass the chat id as `conversation_id`**, so the same person keeps the same token (`[NAME_1]`) across the chat.
+3. **Agents see tokens, not values.** When they need the real value (e.g. to call the customer), give them a button that asks your backend; the backend reads the vault (access-controlled, logged) and places the call. The agent never sees the number.
+4. **`token` for chats, `mask` for logs and analytics.**
+5. **Fail closed:** if PII Guard is down, hold the message rather than store it raw.
+6. **Bots and LLMs get only the redacted text.** If a reply must contain a real value ("we'll call you on…"), swap the token back on your backend just before it goes to the customer.
+
+Adds ~10–20 ms per message. Connectors for hosted platforms (Freshchat, Google Chat, …) are planned; until then, use the patterns below.
+
 ## Using it with someone else's chat app
 Most teams use a hosted chat tool (Freshchat/Freshdesk, Zendesk, Intercom, a WhatsApp BSP such as Gupshup, Interakt or Twilio, Haptik, Yellow.ai…). You can't change that vendor's code, so PII Guard plugs in at the points you **do** control:
 
