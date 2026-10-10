@@ -47,6 +47,43 @@ Known weaknesses: false alarms on 20–33% of PII-free texts (tracking/order num
   python -m pii.onnx_tagger export models/tagger-piiranha          # ONNX for serving
   ```
 
+## Download and use the model
+The trained model lives in a **private** Hugging Face repo (`lan1983/pii-guard-tagger`), so only that account can download it; everyone else should train their own (above). You need a Hugging Face **Read** token from https://huggingface.co/settings/tokens. Runs on CPU: ~2 GB RAM, no GPU.
+
+**Option 1: let the service download it** (Docker or cloud). Set two env vars and start; the service fetches only what it needs (~1.1 GB) on first start:
+```bash
+PII_MODEL_REPO=lan1983/pii-guard-tagger
+HF_TOKEN=hf_...            # read token; keep it in .env / your secret manager, never in git
+```
+
+**Option 2: download it yourself** into the default folder:
+```bash
+pip install -r requirements-serve.txt
+hf auth login                                   # paste the read token
+hf download lan1983/pii-guard-tagger \
+  --include "onnx/*" --include "config.json" --include "tokenizer*" \
+  --local-dir models/tagger-piiranha
+```
+(Add `--include "model.safetensors"` only if you want the PyTorch weights for retraining or evaluation.)
+
+**Use it from Python:** use the `Engine`, not the bare model. The engine adds the checksum rules, format checks and conversation memory that make up most of the accuracy:
+```python
+from pii.engine import Engine
+
+engine = Engine("models/tagger-piiranha")          # load once, reuse (thread-safe)
+
+r = engine.redact("mera naam Ramesh Kumar hai, number 98450 12345, PAN ABCPK1234M",
+                  conversation_id="chat-1")        # same id → same tokens across messages
+r["redacted"]    # 'mera naam [NAME_1] hai, number [PHONE_1], PAN [PAN_1]'
+r["entities"]    # [{'label': 'NAME', 'token': '[NAME_1]', 'start': 10, 'end': 22, ...}, ...]
+
+engine.redact("Ramesh again", conversation_id="chat-1")["redacted"]   # '[NAME_1] again'
+engine.redact("Ramesh Kumar 98450 12345", mode="mask")["redacted"]    # '[NAME] [PHONE]' (irreversible)
+engine.vault("chat-1")                                                  # {'[NAME_1]': 'Ramesh Kumar', ...}: protect this
+```
+
+**Use it as a service:** `python -m pii.server` (or Docker below), then `POST /redact` (see [API](#api)).
+
 ## Quick start (local demo)
 ```bash
 python3.12 -m venv .venv && .venv/bin/pip install -r requirements-train.txt
